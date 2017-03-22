@@ -1,16 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D3C5FF46-D5AD-4299-B6F0-36454C161069}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6810C56-A6D8-416F-9DE5-3D6EBE529B88}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FixerIOCore", "src\FixerIOCore\FixerIOCore.xproj", "{E832B376-886B-4A75-8DE8-05D727510437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FixerIoCore", "src\FixerIoCore\FixerIoCore.csproj", "{E832B376-886B-4A75-8DE8-05D727510437}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

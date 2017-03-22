@@ -4,69 +4,115 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace FixerIOCore
+namespace FixerIoCore
 {
-    public class FixerIOClient
+    public class FixerIoClient
     {
-        private String _date;
-        private String _base;
-        private bool _https;
-        private ICollection<string> _rates;
+        private readonly string _baseCurrency;
+        private readonly bool _https;
+        private ICollection<string> _symbols;
 
-        public FixerIOClient(bool https = false)
+        public FixerIoClient()
         {
-            _date = "latest";
-            _base = Symbol.EUR.ToString();
-            _rates = new List<string>();
+            _https = false;
+            _baseCurrency = Symbol.EUR.ToString();
         }
 
-        public async Task<Quote> Quote()
+        public FixerIoClient(Symbol baseCurrency)
         {
-            return await Request();
+            _baseCurrency = baseCurrency.ToString();
         }
 
-        public async Task<Quote> Quote(Symbol baseSymbol)
+        public FixerIoClient(Symbol baseCurrency, IEnumerable<Symbol> symbols)
         {
-            _base = baseSymbol.ToString();
-
-            return await Request();
+            _baseCurrency = baseCurrency.ToString();
+            SetSymbols(symbols);
         }
 
-        public async Task<Quote> Quote(Symbol baseSymbol, DateTime date)
+        public FixerIoClient(Symbol baseCurrency, IEnumerable<Symbol> symbols, bool https)
         {
-            _base = baseSymbol.ToString();
-            _date = date.ToString("yyyy-MM-dd");
-
-            return await Request();
+            _baseCurrency = baseCurrency.ToString();
+            SetSymbols(symbols);
+            _https = https;
         }
 
-        public async Task<Quote> Quote(Symbol baseSymbol, DateTime date, Symbol[] rates)
+        private void SetSymbols(IEnumerable<Symbol> symbols)
         {
-            _base = baseSymbol.ToString();
-            _date = date.ToString("yyyy-MM-dd");
+            _symbols = new List<string>();
 
-            foreach (var r in rates)
+            foreach (var symbol in symbols)
             {
-                _rates.Add(r.ToString());
+                _symbols.Add(symbol.ToString());
             }
+        }
 
+        public async Task<Quote> GetLatestAsync()
+        {
             return await Request();
+        }
+
+        public Quote GetLatest()
+        {
+            return Request().Result;
+        }
+
+        public async Task<Quote> GetForDateAsync(DateTime date)
+        {
+            return await Request(date, null);
+        }
+
+        public Quote GetForDate(DateTime date)
+        {
+            return Request(date, null).Result;
+        }
+
+        public async Task<decimal> ConvertAsync(Symbol from, Symbol to)
+        {
+            return (await Request(null, from)).Rates[to.ToString()];
+        }
+
+        public decimal Convert(Symbol from, Symbol to)
+        {
+            return Request(null, from).Result.Rates[to.ToString()];
+        }
+
+        public async Task<decimal> ConvertAsync(Symbol from, Symbol to, DateTime date)
+        {
+            return (await Request(date, from)).Rates[to.ToString()];
+        }
+
+        public decimal Convert(Symbol from, Symbol to, DateTime date)
+        {
+            return Request(date, from).Result.Rates[to.ToString()];
         }
 
         private async Task<Quote> Request()
         {
-            using (var client = new HttpClient())
+            return await Request(null, null);
+        }
+
+        private string PrepareRequest(DateTime? date, Symbol? from)
+        {
+            var currency = (from.HasValue ? from.ToString() : _baseCurrency);
+            var dateString = date == null ? "latest" : date.Value.ToString("yyyy-MM-dd");
+            var queryString = $"{dateString}?base={currency}";
+
+            if (_symbols != null)
             {
-                client.BaseAddress = new Uri($"{(_https ? "https" : "http")}://api.fixer.io/");
+                queryString += string.Join(",", _symbols);
+            }
 
-                var queryString = $"{_date}?base={_base}";
+            return queryString;
+        }
 
-                if (_rates.Count > 0)
-                {
-                    queryString += string.Join(",", _rates);
-                }
+        private async Task<Quote> Request(DateTime? date, Symbol? from)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri($"{(_https ? "https" : "http")}://api.fixer.io/");
 
-                var response = await client.GetAsync(queryString);
+                var queryString = PrepareRequest(date, from);
+                var response = await httpClient.GetAsync(queryString);
 
                 if (response.IsSuccessStatusCode)
                 {

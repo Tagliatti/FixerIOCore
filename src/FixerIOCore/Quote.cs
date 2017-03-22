@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FixerIOCore
+namespace FixerIoCore
 {
     public class Quote
     {

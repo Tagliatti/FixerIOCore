@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <id>FixerIOCore</id>
+        <id>FixerIoCore</id>
         <version>1.0.1</version>
         <title>Fixer.io Core</title>
         <authors>Tagliatti</authors>
         <owners>Tagliatti</owners>
-        <licenseUrl>https://github.com/Tagliatti/FixerIOCore/blob/master/LICENSE.md</licenseUrl>
-        <projectUrl>https://github.com/Tagliatti/FixerIOCore</projectUrl>
+        <licenseUrl>https://github.com/Tagliatti/FixerIoCore/blob/master/LICENSE.md</licenseUrl>
+        <projectUrl>https://github.com/Tagliatti/FixerIoCore</projectUrl>
         <iconUrl>http://fixer.io/img/money.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A wrapper for the fixer.io rates and currency conversion API for .NET Core. http://fixer.io</description>
@@ -20,21 +20,21 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="src\FixerIOCore\bin\Release\netstandard1.6\FixerIOCore.deps.json" target="src\FixerIOCore\bin\Release\netstandard1.6\FixerIOCore.deps.json" />
-        <file src="src\FixerIOCore\bin\Release\netstandard1.6\FixerIOCore.dll" target="src\FixerIOCore\bin\Release\netstandard1.6\FixerIOCore.dll" />
-        <file src="src\FixerIOCore\bin\Release\netstandard1.6\FixerIOCore.pdb" target="src\FixerIOCore\bin\Release\netstandard1.6\FixerIOCore.pdb" />
-        <file src="src\FixerIOCore\obj\Release\netstandard1.6\.IncrementalCache" target="src\FixerIOCore\obj\Release\netstandard1.6\.IncrementalCache" />
-        <file src="src\FixerIOCore\obj\Release\netstandard1.6\.SDKVersion" target="src\FixerIOCore\obj\Release\netstandard1.6\.SDKVersion" />
-        <file src="src\FixerIOCore\obj\Release\netstandard1.6\dotnet-compile-csc.rsp" target="src\FixerIOCore\obj\Release\netstandard1.6\dotnet-compile-csc.rsp" />
-        <file src="src\FixerIOCore\obj\Release\netstandard1.6\dotnet-compile.assemblyinfo.cs" target="src\FixerIOCore\obj\Release\netstandard1.6\dotnet-compile.assemblyinfo.cs" />
-        <file src="src\FixerIOCore\obj\Release\netstandard1.6\dotnet-compile.rsp" target="src\FixerIOCore\obj\Release\netstandard1.6\dotnet-compile.rsp" />
-        <file src="src\FixerIOCore\Properties\AssemblyInfo.cs" target="src\FixerIOCore\Properties\AssemblyInfo.cs" />
-        <file src="src\FixerIOCore\FixerIOClient.cs" target="src\FixerIOCore\FixerIOClient.cs" />
-        <file src="src\FixerIOCore\FixerIOCore.xproj" target="src\FixerIOCore\FixerIOCore.xproj" />
-        <file src="src\FixerIOCore\FixerIOCore.xproj.user" target="src\FixerIOCore\FixerIOCore.xproj.user" />
-        <file src="src\FixerIOCore\project.json" target="src\FixerIOCore\project.json" />
-        <file src="src\FixerIOCore\project.lock.json" target="src\FixerIOCore\project.lock.json" />
-        <file src="src\FixerIOCore\Quote.cs" target="src\FixerIOCore\Quote.cs" />
-        <file src="src\FixerIOCore\Symbol.cs" target="src\FixerIOCore\Symbol.cs" />
+        <file src="src\FixerIoCore\bin\Release\netstandard1.6\FixerIoCore.deps.json" target="src\FixerIoCore\bin\Release\netstandard1.6\FixerIoCore.deps.json" />
+        <file src="src\FixerIoCore\bin\Release\netstandard1.6\FixerIoCore.dll" target="src\FixerIoCore\bin\Release\netstandard1.6\FixerIoCore.dll" />
+        <file src="src\FixerIoCore\bin\Release\netstandard1.6\FixerIoCore.pdb" target="src\FixerIoCore\bin\Release\netstandard1.6\FixerIoCore.pdb" />
+        <file src="src\FixerIoCore\obj\Release\netstandard1.6\.IncrementalCache" target="src\FixerIoCore\obj\Release\netstandard1.6\.IncrementalCache" />
+        <file src="src\FixerIoCore\obj\Release\netstandard1.6\.SDKVersion" target="src\FixerIoCore\obj\Release\netstandard1.6\.SDKVersion" />
+        <file src="src\FixerIoCore\obj\Release\netstandard1.6\dotnet-compile-csc.rsp" target="src\FixerIoCore\obj\Release\netstandard1.6\dotnet-compile-csc.rsp" />
+        <file src="src\FixerIoCore\obj\Release\netstandard1.6\dotnet-compile.assemblyinfo.cs" target="src\FixerIoCore\obj\Release\netstandard1.6\dotnet-compile.assemblyinfo.cs" />
+        <file src="src\FixerIoCore\obj\Release\netstandard1.6\dotnet-compile.rsp" target="src\FixerIoCore\obj\Release\netstandard1.6\dotnet-compile.rsp" />
+        <file src="src\FixerIoCore\Properties\AssemblyInfo.cs" target="src\FixerIoCore\Properties\AssemblyInfo.cs" />
+        <file src="src\FixerIoCore\FixerIoClient.cs" target="src\FixerIoCore\FixerIoClient.cs" />
+        <file src="src\FixerIoCore\FixerIoCore.xproj" target="src\FixerIoCore\FixerIoCore.xproj" />
+        <file src="src\FixerIoCore\FixerIoCore.xproj.user" target="src\FixerIoCore\FixerIoCore.xproj.user" />
+        <file src="src\FixerIoCore\project.json" target="src\FixerIoCore\project.json" />
+        <file src="src\FixerIoCore\project.lock.json" target="src\FixerIoCore\project.lock.json" />
+        <file src="src\FixerIoCore\Quote.cs" target="src\FixerIoCore\Quote.cs" />
+        <file src="src\FixerIoCore\Symbol.cs" target="src\FixerIoCore\Symbol.cs" />
     </files>
 </package>
