@@ -3,7 +3,7 @@
   <PropertyGroup>
     <VersionPrefix>1.0.4</VersionPrefix>
     <TargetFramework>netstandard1.6</TargetFramework>
-    <AssemblyName>FixerIOCore</AssemblyName>
+    <AssemblyName>FixerIoCore</AssemblyName>
     <PackageId>FixerIOCore</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
