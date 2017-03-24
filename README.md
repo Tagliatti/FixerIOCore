@@ -7,8 +7,8 @@ On Nuget:
 	PM> Install-Package FixerIoCore
 
 ## Using
-Default values
-Currency: EUR
+**Default values**
+Currency: EUR  
 Https: false
 
 ```c#
