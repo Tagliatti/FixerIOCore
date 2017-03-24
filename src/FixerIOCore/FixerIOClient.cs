@@ -97,9 +97,9 @@ namespace FixerIoCore
             var dateString = date == null ? "latest" : date.Value.ToString("yyyy-MM-dd");
             var queryString = $"{dateString}?base={currency}";
 
-            if (_symbols != null)
+            if (_symbols != null && from == null)
             {
-                queryString += string.Join(",", _symbols);
+                queryString += $"&symbols={string.Join(",", _symbols)}";
             }
 
             return queryString;

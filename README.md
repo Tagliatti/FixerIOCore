@@ -7,17 +7,37 @@ On Nuget:
 	PM> Install-Package FixerIoCore
 
 ## Using
+Default values
+Currency: EUR
+Https: false
+
 ```c#
 var fixerIoClient = new FixerIoClient();
 ```
+
 Default currency
 ```c#
 var fixerIoClient = new FixerIoClient(Symbol.USD);
 ```
-# #ERRO
+
 Default currency and what quotes should be returned
 ```c#
-var fixerIoClient = new FixerIoClient(Symbol.USD, );
+var fixerIoClient = new FixerIoClient(Symbol.USD, new[] { Symbol.GBP, Symbol.EUR });
+```
+
+Default currency, what quotes should be returned and requests using https
+```c#
+var fixerIoClient = new FixerIoClient(Symbol.USD, new[] { Symbol.GBP, Symbol.EUR }, true);
+```
+
+Get latest rates
+```c#
+var quote = fixerIoClient.GetLatest();
+```
+
+Get historical rates for any day since 1999
+```c#
+var quote = fixerIoClient.GetForDate(new DateTime(2017, 3, 1));
 ```
 
 Converting
